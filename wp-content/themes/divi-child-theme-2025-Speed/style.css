@@ -1,0 +1,151 @@
+/*
+ Theme Name:     Divi Child Theme 2025 - Speed
+ Theme URI:      https://www.elegantthemes.com/gallery/divi/
+ Description:    Divi Child Theme
+ Author:         The Websites Team
+ Author URI:     https://www.elegantthemes.com
+ Template:       Divi
+ Version:        1.0.1
+*/
+ 
+@import url("../Divi/style.css");
+ 
+/* Theme customization starts here
+------------------------------------------------------- */
+
+/*---------------------CSS FOR LP's and BLP's---------------------*/
+/*uncomment to use*/
+
+/*#et-top-navigation{
+display: none;
+}
+
+#logo{
+display: none;
+}*/
+
+
+/*---------------------CSS FOR ALL BUILDS---------------------*/
+
+/*Make phone number color visible on Safari*/
+a[href^=tel] {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*Used to flip the order of a section on mobile view*/
+@media only screen and ( max-width: 980px ) {
+	.flip { display: -webkit-flex; -webkit-flex-direction: column-reverse; display: flex; flex-direction: column-reverse !important;}
+	.flip .et_pb_column:first-child() { margin-top: 30px; margin-bottom: 0px; }
+}
+
+
+/*Make logo size 80%*/
+#logo { max-width: 80% !important; max-height: 80% !important; }
+
+
+
+/*Styling the confirmation message, change the color to darker color if on a light background*/
+div.gform_confirmation_message {
+    text-align: center !important;
+    color: inherit!important;/*CHANGE TO YOUR DESIRED COLOR*/
+    font-size: 16px !important;
+}
+.gfield_label{
+	color:inherit; /*CHANGE TO YOUR DESIRED COLOR*/
+}
+.gform_required_legend{
+	color:inherit;/*CHANGE TO YOUR DESIRED COLOR*/
+}
+
+/*Vertically align icons to the text on secondary menu*/
+.et-pb-icon {
+padding-top: 4px !important;
+}
+
+/* Fix alignment issues with gravity forms checkbox and radio button */
+.gform_wrapper.gravity-theme .gfield input[type="checkbox"],
+.gform_wrapper.gravity-theme .gfield input[type="radio"] { width: auto; }
+
+/*Used to add padding on cart icon so it's not touching the phone number and email. For websites with WooCommerce integration*/
+.et-cart-info{padding-right:15px !important;}
+
+/*---------------------OPTIONAL CSS---------------------*/
+/*uncomment to use*/
+
+
+/*--NAVIGATION MENU--*/
+/* Hamburger menu color, change color from black to desired color */
+/*@media only screen and (max-width: 980px){
+#et-top-navigation span.mobile_menu_bar:before, #et-top-navigation span.mobile_menu_bar:after {
+    color: #000 !important;
+	}}*/
+
+
+/*Fix last navigation dropdown on navigation bar from cutting off*/
+/*.nav li ul {
+    right: 0px;
+    left: auto;
+}*/
+
+/*Used to show the hamburger bar early so the navigation doesn't run into the logo.  Change the max-width value to the value right before the navigation runs into the logo*/
+/*@media(max-width:1030px){
+	nav#top-menu-nav{
+		display:none;
+	}
+}
+
+@media(max-width:1030px){
+	#et_mobile_nav_menu{
+		float:right;
+		display:block;
+	}
+}*/
+
+/*Add drop shadow to navigation on main header*/
+/*--------Header Drop Shadow-----*/
+ /*#main-header {
+ -webkit-box-shadow: 0px 9px 20px 2px rgba(0,0,0,0.24);
+ -moz-box-shadow: 0px 9px 20px 2px rgba(0,0,0,0.24);
+ box-shadow: 0px 9px 20px 2px rgba(0,0,0,0.24);
+ }*/
+
+/*Add drop shadow to navigation on fixed header*/
+/*--------FIXED Header Drop Shadow-----*/
+ /*#main-header.et-fixed-header {
+ -webkit-box-shadow: 0px 9px 20px 2px rgba(0,0,0,0.24)!important;
+ -moz-box-shadow: 0px 9px 20px 2px rgba(0,0,0,0.24)!important;
+ box-shadow: 0px 9px 20px 2px rgba(0,0,0,0.24)!important;
+ }*/
+
+
+
+/*--GRAVITY FORMS--*/
+
+/* change gravity form placeholder text color to white, change from white to color desired*/
+/*::-webkit-input-placeholder { color:#FFF; }
+:-moz-placeholder { opacity: 1; color:#FFF; } 
+::-moz-placeholder { opacity: 1; color:#FFF; } 
+:-ms-input-placeholder { color:#FFF; } 
+input:-moz-placeholder { color:#FFF; }*/
+
+/*Align Gravity form button to the right*/
+/*.dcgd_submit_button {
+  float:right;
+}*/
+
+
+/*--OTHER--*/
+
+/*Used to hide the title of the images on the gallery module of Divi*/
+/*.mfp-title{
+display: none !important;
+}*/
+
+
+/* Fill in hover effect for button similar to Divi Plus (e.g construction) 
+   Don't use the button icon and border. Adjust the padding to increase/decrease the size of the button
+*/
+/*body .et_pb_button { padding: 10px 16px !important; border-width: 0px !important; }
+body .et_pb_button:hover { box-shadow: inset -10.5em 0 0 0 #000; -webkit-box-shadow: inset -10.5em 0 0 0 #000; }*/
+
