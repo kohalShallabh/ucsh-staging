@@ -43,43 +43,21 @@ class Model_DB extends Model_Settings {
 	}
 	
 	public function get($key, $default = false) {
-		$results = $this->get_multiple(array($key => $default));
-		return $results[$key];
-	}
-	
-	public function get_multiple($keysDefaults) {
 		global $wpdb;
 		
-		$result = array();
-		$remaining = array();
-		foreach ($keysDefaults as $key => $default) {
-			if ($this->_has_cached($key)) {
-				$result[$key] = $this->_cached_value($key);
-			}
-			else {
-				$remaining[$key] = $default;
-			}
+		if ($this->_has_cached($key)) {
+			return $this->_cached_value($key);
 		}
 		
-		if (!empty($remaining)) {
-			$sanitizedKeys = esc_sql(array_keys($remaining));
-			$keysINClause = "'" . implode("','", $sanitizedKeys) . "'";
-			
-			$table = Controller_DB::shared()->settings;
-			$rows = $wpdb->get_results("SELECT `name`, `value`, `autoload` FROM `{$table}` WHERE `name` IN ({$keysINClause})", ARRAY_A);
-			foreach ($rows as $r) {
-				$name = $r['name'];
-				$value = $r['value'];
-				
-				$result[$name] = $value;
-				unset($remaining[$name]);
-				if ($r['autoload'] != self::AUTOLOAD_NO) {
-					$this->_update_cached($name, $value);
-				}
-			}
+		$table = Controller_DB::shared()->settings;
+		if (!($setting = $wpdb->get_row($wpdb->prepare("SELECT `name`, `value`, `autoload` FROM `{$table}` WHERE `name` = %s", $key)))) {
+			return $default;
 		}
 		
-		return array_merge($remaining, $result);
+		if ($setting->autoload != self::AUTOLOAD_NO) {
+			$this->_update_cached($key, $setting->value);
+		}
+		return $setting->value;
 	}
 	
 	public function remove($key) {

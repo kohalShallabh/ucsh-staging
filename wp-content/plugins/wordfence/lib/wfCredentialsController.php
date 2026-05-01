@@ -312,8 +312,8 @@ class wfCredentialsController {
 				array('status' => 400));
 		}
 		else if (!empty($user)) {
-			wfAdminNoticeQueue::removeAdminNoticeForCategory('2faBreachPassword', $user->ID);
-			wfAdminNoticeQueue::removeAdminNoticeForCategory('previousIPBreachPassword', $user->ID);
+			wfAdminNoticeQueue::removeAdminNotice(false, '2faBreachPassword', array($user->ID));
+			wfAdminNoticeQueue::removeAdminNotice(false, 'previousIPBreachPassword', array($user->ID));
 			wfCredentialsController::clearCachedCredentialStatus($user);
 		}
 		

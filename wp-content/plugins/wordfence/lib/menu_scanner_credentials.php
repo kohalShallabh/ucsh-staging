@@ -25,12 +25,13 @@ switch ($action) {
 <div class="wf-options-controls">
 	<div class="wf-row">
 		<div class="wf-col-xs-12">
-			<div class="wordfence-vue-wrapper"
-					 data-base-component="SettingsControlBlock"
-					 data-prop-back-link="<?php echo esc_attr($scanURL); ?>"
-					 data-prop-back-link-label="<?php echo esc_attr(__('Back to Scan', 'wordfence')); ?>"
-					 data-prop-suppress-controls="true"
-			></div>
+			<?php
+			echo wfView::create('options/block-controls', array(
+				'backLink' => $scanURL,
+				'backLabel' => __('Back to Scan', 'wordfence'),
+				'suppressControls' => true,
+			))->render();
+			?>
 		</div>
 	</div>
 </div>
